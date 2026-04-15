@@ -86,9 +86,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3v2ag")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_swing",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -152,8 +152,9 @@ debug_color = Color(0.37427923, 0.4884333, 0.9670016, 0.41960785)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315507293]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"run"
-frame_progress = 0.42715812
+animation = &"attack_swing"
+frame = 3
+frame_progress = 1.0
 
 [node name="AttackCast" type="ShapeCast2D" parent="." unique_id=696868870]
 shape = SubResource("CircleShape2D_qhqgy")

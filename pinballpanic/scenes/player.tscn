@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://3gi03mff6bvg" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://42hijsxp5v2q" path="res://assets/placeholder-assets/Player.png" id="2_qhqgy"]
-[ext_resource type="Script" uid="uid://dbeonaxfcfvj8" path="res://scripts/attack_hitbox.gd" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 6.0
@@ -138,8 +137,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_qhqgy"]
-b = Vector2(3.8571396, 0)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 14.97
 
 [node name="Player" type="CharacterBody2D" unique_id=1616736911]
 position = Vector2(570, 288)
@@ -156,10 +155,6 @@ sprite_frames = SubResource("SpriteFrames_y4r1p")
 animation = &"run"
 frame_progress = 0.42715812
 
-[node name="AttackHitbox" type="Area2D" parent="." unique_id=1643612581]
-script = ExtResource("3_qhqgy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=1290506292]
-scale = Vector2(7, 7)
-shape = SubResource("SegmentShape2D_qhqgy")
-debug_color = Color(0.86044455, 0.36170763, 0, 0.41960785)
+[node name="AttackCast" type="ShapeCast2D" parent="." unique_id=696868870]
+shape = SubResource("CircleShape2D_qhqgy")
+target_position = Vector2(0, 0)

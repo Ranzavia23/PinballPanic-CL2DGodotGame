@@ -17,19 +17,19 @@ scale = Vector2(5, 5)
 physics_material_override = SubResource("PhysicsMaterial_o5qli")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1479549023]
-position = Vector2(574, 843)
+position = Vector2(547, 833)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_0wfyh")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=405039227]
-position = Vector2(583, -211)
+position = Vector2(580, -195)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_0wfyh")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=232799929]
-position = Vector2(1360.0001, 274.00003)
+position = Vector2(1336.0001, 553)
 rotation = -1.5707964
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_0wfyh")

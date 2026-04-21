@@ -3,7 +3,7 @@ extends CharacterBody2D
 #global variabel
 @export var speed := 500
 @export var jump_force := -800
-@export var gravity := 1280
+@export var gravity := 1500
 @export var attack_buffer_window: float = 0.15 
 @export var coyote_time: float = 0.15     
 @export var jump_buffer_time: float = 0.1 
@@ -34,13 +34,16 @@ func handle_movement(delta):
 		facing_direction = direction
 		shapecast.scale.x = facing_direction
 	velocity.x = direction * speed
-	#COYOTETIME
+	#coyottetime
 	if is_on_floor():
 		coyote_timer = coyote_time
 	else:
 		coyote_timer -= delta      
-		velocity.y += gravity * delta
-	#JUMPBUFFER
+		if abs(velocity.y) < 200:
+			velocity.y += (gravity * 0.5) * delta
+		else:
+			velocity.y += gravity * delta
+	#jumpbuffer
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
 	else:
@@ -49,6 +52,8 @@ func handle_movement(delta):
 		velocity.y = jump_force
 		jump_buffer_timer = 0.0
 		coyote_timer = 0.0
+	if Input.is_action_just_released("jump") and velocity.y < 0:
+		velocity.y *= 0.2
 	move_and_slide()
 
 #fungsiattack
@@ -69,13 +74,16 @@ func execute_attack():
 	if shapecast.is_colliding():
 		for i in range(shapecast.get_collision_count()):
 			var body = shapecast.get_collider(i)
-			
 			if body.is_in_group("Projectile"):
-				var mouse_dir = (get_global_mouse_position() - body.global_position).normalized()
+				var aim_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+				if aim_dir == Vector2.ZERO:
+					aim_dir = Vector2(facing_direction, 0)
+				else:
+					aim_dir = Vector2.RIGHT.rotated(snapped(aim_dir.angle(), PI / 4))
 				if body.has_method("on_deflected"):
-					body.on_deflected(mouse_dir, self) 
+					body.on_deflected(aim_dir, self) 
 				hit_projectile = true
-				break 
+				break
 		if not hit_projectile:
 			for i in range(shapecast.get_collision_count()):
 				var body = shapecast.get_collider(i)
@@ -90,7 +98,7 @@ func execute_attack():
 func take_damage(amount: int):
 	print("Awww aku kena damage sebanyak: ", amount)
 
-#buat animasi
+#play animasi
 func update_animation():
 	sprite.flip_h = facing_direction < 0
 	if is_attacking:

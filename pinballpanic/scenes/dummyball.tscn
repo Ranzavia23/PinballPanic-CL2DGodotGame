@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cleesdvo3wpjk"]
+
+[ext_resource type="Script" uid="uid://bxb6rjx8ilsft" path="res://scripts/dummyball.gd" id="1_h3sao"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h3sao"]
+radius = 0.7755108
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_41t61"]
+
+[node name="Ball" type="CharacterBody2D" unique_id=263253924]
+position = Vector2(558.99994, 215.99998)
+scale = Vector2(3, 3)
+script = ExtResource("1_h3sao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901025274]
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_h3sao")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1467860485]
+scale = Vector2(7, 7)
+texture = SubResource("CanvasTexture_41t61")

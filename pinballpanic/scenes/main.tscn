@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://dlovmwy1lc8tb"]
 
-[node name="Node2D" type="Node2D" unique_id=1148015703]
+[ext_resource type="PackedScene" uid="uid://cfw7or6elasju" path="res://scenes/wall.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dnrhaiswcdfds" path="res://scenes/ball.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b05qu3ci44eao" path="res://scenes/dummy_enemy.tscn" id="3_sugp2"]
+
+[node name="Node2D2" type="Node2D" unique_id=1148015703]
+
+[node name="Wall" parent="." unique_id=1853324767 instance=ExtResource("1_o5qli")]
+position = Vector2(2, -1)
+
+[node name="Node2D" parent="." unique_id=251776698 instance=ExtResource("2_0wfyh")]
+position = Vector2(229, 156)
+
+[node name="dummy_enemy" parent="." unique_id=523951844 instance=ExtResource("3_sugp2")]
+position = Vector2(189, 349)
+
+[node name="dummy_enemy2" parent="." unique_id=480275399 instance=ExtResource("3_sugp2")]
+position = Vector2(969, 342)
+
+[node name="Node2D2" parent="." unique_id=740416536 instance=ExtResource("2_0wfyh")]
+position = Vector2(454, 357)
+
+[node name="Node2D3" parent="." unique_id=1295090314 instance=ExtResource("2_0wfyh")]
+position = Vector2(763, 533)
+
+[node name="Node2D4" parent="." unique_id=662206918 instance=ExtResource("2_0wfyh")]
+position = Vector2(798, 131)

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="pinballpanic"
+run/main_scene="uid://dlovmwy1lc8tb"
 config/features=PackedStringArray("4.6", "Forward Plus")
 "<<<<<<< HEAD[display]window/stretch/mode"="canvas_items"
 

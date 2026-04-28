@@ -14,10 +14,13 @@ wait_time = 1.0299999999999998
 position = Vector2(414, 68)
 
 [node name="Marker2D" type="Marker2D" parent="spawn_points" unique_id=1599745681]
-position = Vector2(-578, -124)
+position = Vector2(-558, -13)
 
 [node name="Marker2D2" type="Marker2D" parent="spawn_points" unique_id=358702856]
-position = Vector2(-516, -3)
+position = Vector2(-592, -82)
+
+[node name="Marker2D3" type="Marker2D" parent="spawn_points" unique_id=1568908161]
+position = Vector2(-525, 59)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1241637830]
 position = Vector2(-11, -5)

@@ -33,7 +33,10 @@ func spawn_next():
 		await get_tree().create_timer(7.0).timeout
 
 		wave += 1
-		stop_wave()
+		if wave > max_wave:
+			stop_wave()
+			return
+		await get_tree().create_timer(5.0).timeout
 		start_wave()
 		return
 

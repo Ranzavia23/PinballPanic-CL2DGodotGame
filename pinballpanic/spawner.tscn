@@ -10,8 +10,6 @@ enemy_scene = ExtResource("2_ttk4a")
 [node name="Timer" type="Timer" parent="." unique_id=815602272]
 wait_time = 1.0299999999999998
 
-[node name="Timer2" type="Timer" parent="." unique_id=1222716633]
-
 [node name="spawn_points" type="Node2D" parent="." unique_id=234089246]
 position = Vector2(414, 68)
 

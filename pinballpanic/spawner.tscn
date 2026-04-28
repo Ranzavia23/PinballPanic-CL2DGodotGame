@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://boh7mxe7cvayy"]
+
+[ext_resource type="Script" uid="uid://cc3yaeolvklbu" path="res://EnemySpawner.gd" id="1_yp5lu"]
+[ext_resource type="PackedScene" uid="uid://mikb4qgopgfx" path="res://dummy enemy.tscn" id="2_ttk4a"]
+
+[node name="Node2D" type="Node2D" unique_id=1214325997]
+script = ExtResource("1_yp5lu")
+enemy_scene = ExtResource("2_ttk4a")
+
+[node name="Timer" type="Timer" parent="." unique_id=815602272]
+wait_time = 1.0299999999999998
+
+[node name="Timer2" type="Timer" parent="." unique_id=1222716633]
+
+[node name="spawn_points" type="Node2D" parent="." unique_id=234089246]
+position = Vector2(414, 68)
+
+[node name="Marker2D" type="Marker2D" parent="spawn_points" unique_id=1599745681]
+position = Vector2(-578, -124)
+
+[node name="Marker2D2" type="Marker2D" parent="spawn_points" unique_id=358702856]
+position = Vector2(-516, -3)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1241637830]
+position = Vector2(-11, -5)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

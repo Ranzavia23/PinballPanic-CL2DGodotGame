@@ -92,7 +92,7 @@ one_way_collision = true
 debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 
 [node name="Player" parent="." unique_id=1616736911 instance=ExtResource("1_o5qli")]
-position = Vector2(578.00006, 608.00006)
+position = Vector2(578, 608.00006)
 scale = Vector2(5, 5)
 
 [node name="Ball" parent="." unique_id=263253924 instance=ExtResource("2_0wfyh")]

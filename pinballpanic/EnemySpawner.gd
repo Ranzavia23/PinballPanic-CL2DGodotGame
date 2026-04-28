@@ -6,8 +6,9 @@ extends Node2D
 	$spawn_points/Marker2D2,
 	$spawn_points/Marker2D3]
 var enemy_per_wave = 5
+var spawning = true
 var spawned = 0
-var wave = 1
+var wave = 15
 var max_wave = 15
 var spawn_amount = 1
 var current_wave = 1
@@ -23,6 +24,8 @@ func start_wave():
 	spawn_next()
 
 func spawn_next():
+	if not spawning:
+		return
 	# STOP kalau sudah cukup spawn
 	if spawned >= enemy_per_wave:
 		print("Wave end")
@@ -55,7 +58,9 @@ func spawn_enemy():
 
 func stop_wave():
 	if wave >= max_wave:
-		game_over()
+		spawning = false
+		return
+		print (" game selesai")
 func update_jumlah_enemy():
 	if wave <=3:
 		spawn_amount = 1
@@ -63,5 +68,3 @@ func update_jumlah_enemy():
 		spawn_amount = 2
 	else:
 		spawn_amount = 3		
-func game_over():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")

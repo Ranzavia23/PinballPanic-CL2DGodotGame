@@ -8,7 +8,7 @@ extends Node2D
 var enemy_per_wave = 5
 var spawning = true
 var spawned = 0
-var wave = 15
+var wave = 1
 var max_wave = 15
 var spawn_amount = 1
 var current_wave = 1

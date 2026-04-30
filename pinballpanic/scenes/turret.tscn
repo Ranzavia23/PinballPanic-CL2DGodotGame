@@ -1,3 +1,25 @@
 [gd_scene format=3 uid="uid://bgpswj3g25fgm"]
 
-[node name="Turret" type="Node2D" unique_id=794363852]
+[ext_resource type="Script" uid="uid://ve0bdssl1l53" path="res://scripts/turret.gd" id="1_el7wl"]
+[ext_resource type="PackedScene" uid="uid://dnrhaiswcdfds" path="res://scenes/ball.tscn" id="2_485p4"]
+[ext_resource type="Texture2D" uid="uid://ic2rxkt1w2nv" path="res://assets/placeholder-assets/turret_idle.png" id="3_485p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp6j5"]
+
+[node name="Turret" type="StaticBody2D" unique_id=18618341]
+scale = Vector2(4, 4)
+script = ExtResource("1_el7wl")
+projectile_scene = ExtResource("2_485p4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1412221272]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_pp6j5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1413692169]
+texture_filter = 1
+texture = ExtResource("3_485p4")
+
+[node name="Timer" type="Timer" parent="." unique_id=1009962696]
+
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=1814532698]
+position = Vector2(6, 0)

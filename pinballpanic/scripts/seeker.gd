@@ -4,23 +4,33 @@ extends CharacterBody2D
 var hp: int = 5
 var player: Node2D = null
 @onready var sprite = $AnimatedSprite2D
+
 var facing_direction := 1  
 
 func _ready():
 	add_to_group("Enemy") 
-	
-	# Cari target (Player)
 	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(_delta):
-	# Kalau Player ada, terus kejar posisinya
 	if player:
 		var direction = global_position.direction_to(player.global_position)
+		if is_on_floor() and player.global_position.y > global_position.y:
+			direction.y = 0 
+			direction.x = facing_direction
+			direction = direction.normalized()
+			
+		elif is_on_ceiling() and player.global_position.y < global_position.y:
+			direction.y = 0
+			direction.x = facing_direction
+			direction = direction.normalized()
+		if is_on_wall():
+			facing_direction *= -1
+			direction.x = facing_direction
 		velocity = direction * speed
 		if velocity.x > 0:
 			facing_direction = 1  
 		elif velocity.x < 0:
-			facing_direction = -1
+			facing_direction = -1 
 		move_and_slide()
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
@@ -35,10 +45,10 @@ func _physics_process(_delta):
 func take_damage(amount: int, push_dir: Vector2 = Vector2.ZERO):
 	hp -= amount
 	if push_dir != Vector2.ZERO:
-		print("Seeker kena pukul Player! Sisa HP: ", hp)
+		print("Swing! kena pukul Player! Sisa HP: ", hp)
 		global_position += push_dir * 50 
 	else:
-		print("Bamm! Seeker kena pantulan Bola! Sisa HP: ", hp)
+		print("Bamm! kena pantulan Bola! Sisa HP: ", hp)
 	
 	if hp <= 0:
 		if push_dir != Vector2.ZERO:

@@ -99,5 +99,11 @@ scale = Vector2(5, 5)
 [node name="Turret" parent="." unique_id=18618341 instance=ExtResource("3_sugp2")]
 position = Vector2(8, 344)
 
+[node name="Turret2" parent="." unique_id=1969003927 instance=ExtResource("3_sugp2")]
+position = Vector2(1144, 345)
+
 [node name="Seeker" parent="." unique_id=1557054355 instance=ExtResource("4_jyhfs")]
-position = Vector2(28.000015, 230.99998)
+position = Vector2(31.000002, 228)
+
+[node name="Seeker2" parent="." unique_id=1745614529 instance=ExtResource("4_jyhfs")]
+position = Vector2(1122, 226)

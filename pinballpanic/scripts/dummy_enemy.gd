@@ -10,18 +10,18 @@ var _direction: float = 1.0
 
 
 func _ready() -> void:
-    current_hp = hp_enemy
-    add_to_group("enemies")
+	current_hp = hp_enemy
+	add_to_group("enemies")
 
 func _physics_process(_delta: float) -> void:
-    position.y += move_speed * _direction * _delta
-    if position.y > _start_y + move_range:
-        _direction = -1.0
-    elif position.y < _start_y - move_range:
-        _direction = 1.0
+	position.y += move_speed * _direction * _delta
+	if position.y > _start_y + move_range:
+		_direction = -1.0
+	elif position.y < _start_y - move_range:
+		_direction = 1.0
 
 func take_damage(amount: int) -> void:
-    current_hp -= amount
-    print("Enemy HP: %d" % current_hp)
-    if current_hp <= 0:
-        queue_free()
+	current_hp -= amount
+	print("Enemy HP: %d" % current_hp)
+	if current_hp <= 0:
+		queue_free()

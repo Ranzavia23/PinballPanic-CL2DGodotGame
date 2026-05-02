@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dvtn0aiwh7x2y"]
+
+[ext_resource type="PackedScene" uid="uid://i7iwqjj5jp0a" path="res://spawner.tscn" id="1_4dvvg"]
+[ext_resource type="PackedScene" uid="uid://l30g5tmem0ah" path="res://scenes/seeker.tscn" id="2_4dvvg"]
+
+[node name="Node2D" type="Node2D" unique_id=1546864199]
+
+[node name="Node2D" parent="." unique_id=1214325997 instance=ExtResource("1_4dvvg")]
+position = Vector2(415.94, 43)
+enemy_scene = ExtResource("2_4dvvg")
+
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=254662520]
+position = Vector2(248, 90)
+zoom = Vector2(3.465, 3.465)

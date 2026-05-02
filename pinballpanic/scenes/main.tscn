@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dyuncablksb11" path="res://assets/placeholder-assets/BG_Placeholder.jpg" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bgpswj3g25fgm" path="res://scenes/turret.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://l30g5tmem0ah" path="res://scenes/seeker.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bad771c57iggh" path="res://scenes/enemy_spawner_new.tscn" id="5_tbgi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
 size = Vector2(1160, 20)
@@ -107,3 +108,11 @@ position = Vector2(31.000002, 228)
 
 [node name="Seeker2" parent="." unique_id=1745614529 instance=ExtResource("4_jyhfs")]
 position = Vector2(1122, 226)
+
+[node name="enemy kiri" parent="." unique_id=305030950 instance=ExtResource("5_tbgi4")]
+position = Vector2(120, 110)
+scale = Vector2(1.045, 1.0049998)
+
+[node name="enemy kanan" parent="." unique_id=509329327 instance=ExtResource("5_tbgi4")]
+position = Vector2(628.255, 100)
+scale = Vector2(1.045, 1.0049998)

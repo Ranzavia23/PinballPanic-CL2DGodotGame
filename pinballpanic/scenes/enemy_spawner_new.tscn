@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bad771c57iggh"]
+
+[ext_resource type="Script" uid="uid://dk1uk5j5nqphj" path="res://node_2d.gd" id="1_i617o"]
+[ext_resource type="PackedScene" uid="uid://l30g5tmem0ah" path="res://scenes/seeker.tscn" id="2_xtvtc"]
+
+[node name="Node2D" type="Node2D" unique_id=509329327]
+position = Vector2(1420, 318)
+scale = Vector2(1.285, 1.285)
+script = ExtResource("1_i617o")
+enemy_scene = ExtResource("2_xtvtc")
+
+[node name="spawn_points" type="Node2D" parent="." unique_id=2010426731]
+position = Vector2(-181.32288, 3.8910675)
+scale = Vector2(3.975, 2.07)
+
+[node name="Marker2D" type="Marker2D" parent="spawn_points" unique_id=865169317]
+position = Vector2(1.7619593, -1.127841)
+
+[node name="Marker2D2" type="Marker2D" parent="spawn_points" unique_id=1048803078]
+position = Vector2(46.203167, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="spawn_points" unique_id=2118425781]
+position = Vector2(94.364075, 1.8797345)

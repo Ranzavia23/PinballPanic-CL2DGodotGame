@@ -10,7 +10,6 @@ func _ready():
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
-	
 	if collision:
 		var collider = collision.get_collider()
 		if collider.name == "Player" or collider.is_in_group("Player"):

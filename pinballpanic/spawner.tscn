@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://boh7mxe7cvayy"]
+[gd_scene format=3 uid="uid://i7iwqjj5jp0a"]
 
-[ext_resource type="Script" uid="uid://cc3yaeolvklbu" path="res://EnemySpawner.gd" id="1_yp5lu"]
-[ext_resource type="PackedScene" uid="uid://mikb4qgopgfx" path="res://dummy enemy.tscn" id="2_ttk4a"]
+[ext_resource type="Script" path="res://EnemySpawner.gd" id="1_yp5lu"]
+[ext_resource type="PackedScene" uid="uid://l30g5tmem0ah" path="res://scenes/seeker.tscn" id="2_ttk4a"]
 
 [node name="Node2D" type="Node2D" unique_id=1214325997]
 script = ExtResource("1_yp5lu")
@@ -11,18 +11,17 @@ enemy_scene = ExtResource("2_ttk4a")
 wait_time = 1.0299999999999998
 
 [node name="spawn_points" type="Node2D" parent="." unique_id=234089246]
-position = Vector2(414, 68)
+position = Vector2(169, 241)
 
 [node name="Marker2D" type="Marker2D" parent="spawn_points" unique_id=1599745681]
-position = Vector2(-558, -13)
+position = Vector2(93, 4)
 
 [node name="Marker2D2" type="Marker2D" parent="spawn_points" unique_id=358702856]
-position = Vector2(-592, -82)
+position = Vector2(13, 3)
 
 [node name="Marker2D3" type="Marker2D" parent="spawn_points" unique_id=1568908161]
-position = Vector2(-525, 59)
+position = Vector2(-68, -4)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1241637830]
-position = Vector2(-11, -5)
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1270023700]
+position = Vector2(230, 236)
+zoom = Vector2(2.015, 2.015)

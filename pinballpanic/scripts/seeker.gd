@@ -10,7 +10,6 @@ var facing_direction := 1
 func _ready():
 	add_to_group("Enemy") 
 	player = get_tree().get_first_node_in_group("Player")
-	
 
 func _physics_process(_delta):
 	if player:

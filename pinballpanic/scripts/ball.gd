@@ -1,89 +1,149 @@
 extends CharacterBody2D
 
-@export var hp_ball: int = 10
-@export var damage_ball: int = 1
-@export var speed_ball: float = 650.0
-@export var min_speed_ball: float = 200.0
-@export var max_speed_ball: float = 800.0
 
+@export var hp_ball: int = 10                 
+@export var damage_ball: int = 1             
+@export var speed_ball: float = 650.0         
+@export var min_speed_ball: float = 200.0
+@export var max_speed_ball: float = 1400.0
+
+@export var speed_increase: float = 50.0      
+
+# AIM ASSIST 
 @export var aim_assist_radius: float = 500.0
-@export var aim_assist_strength: float = 0.35
+@export var aim_assist_strength: float = 0.15
+
 
 var current_hp: int
-var bounce_count: int = 0
 var direction: Vector2 = Vector2.ZERO
-var active: bool = false               
 var is_deflected: bool = false
 var can_aim_assist: bool = false
 var ignored_enemies: Array = []
+
+
+var scored_this_bounce: bool = false
+
 
 func _ready() -> void:
 	current_hp = hp_ball
 	add_to_group("Projectile")
 	set_physics_process(false)
 
+
+
 func _physics_process(delta: float) -> void:
-	if not active:
-		return
+
 	if can_aim_assist:
-		var target = find_nearest_enemy()
-		if target:
-			var to_enemy = (target.global_position - global_position).normalized()
-			direction = direction.lerp(to_enemy, aim_assist_strength).normalized()
+		#_apply_aim_assist() setelah kena hit bola malah muterin enemy dan gk mantul wkwkwk
+		pass
+
 	velocity = direction * speed_ball
 	var collision = move_and_collide(velocity * delta)
+
 	if not collision:
 		return
+
+	_handle_collision(collision)
+
+
+func _handle_collision(collision: KinematicCollision2D) -> void:
+
 	var collider = collision.get_collider()
-	if collider and collider.is_in_group("Player") and not is_deflected:
-		if collider.has_method("take_damage"):
-			collider.take_damage(damage_ball)
-		queue_free()
-		return
-	elif collider and collider.is_in_group("Enemy"):
-		if is_deflected:
+	scored_this_bounce = false
+	if collider.is_in_group("Player"):
+		if not is_deflected:
 			if collider.has_method("take_damage"):
 				collider.take_damage(damage_ball)
 			queue_free()
 		else:
+			_bounce(collision)
+		return
+
+	if collider.is_in_group("Enemy"):
+		if is_deflected:
+			if collider.has_method("take_damage"):
+				collider.take_damage(damage_ball)
+			_bounce(collision)
+		else:
 			add_collision_exception_with(collider)
 			ignored_enemies.append(collider)
 		return
-	else:
-		direction = direction.bounce(collision.get_normal())
-		current_hp -= damage_ball
-		if is_deflected:
-			can_aim_assist = true 
+	_bounce(collision)
+	
+
+func _bounce(collision: KinematicCollision2D) -> void:
+
+	if scored_this_bounce:
+		return
+
+	scored_this_bounce = true
+
+	direction = direction.bounce(collision.get_normal()).normalized()
+
+	speed_ball = clamp(
+		speed_ball + speed_increase,
+		min_speed_ball,
+		max_speed_ball
+	)
+
+	current_hp -= 1
+
+	GameManager.add_score(100)
+
+	if is_deflected:
+		can_aim_assist = true
+
 	if current_hp <= 0:
 		queue_free()
 
+func _apply_aim_assist() -> void:
+	var target = _find_nearest_enemy()
+	if target == null:
+		return
+
+	var to_enemy = (target.global_position - global_position).normalized()
+	direction = direction.lerp(to_enemy, aim_assist_strength).normalized()
+
+
+func _find_nearest_enemy() -> Node2D:
+	var nearest: Node2D = null
+	var nearest_dist := aim_assist_radius
+
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		if enemy is Node2D:
+			var dist = global_position.distance_to(enemy.global_position)
+			if dist < nearest_dist:
+				nearest_dist = dist
+				nearest = enemy
+	return nearest
+
+
 func launch(dir: Vector2, launch_speed: float = speed_ball) -> void:
 	direction = dir.normalized()
-	speed_ball = clamp(launch_speed, min_speed_ball, max_speed_ball)
-	active = true
+	speed_ball = clamp(
+		launch_speed,
+		min_speed_ball,
+		max_speed_ball
+	)
 	set_physics_process(true)
+
 
 func on_deflected(new_dir: Vector2, player_node: Node2D) -> void:
 	is_deflected = true
 	can_aim_assist = false
 	direction = new_dir.normalized()
-	speed_ball = clamp(speed_ball * 1.2, min_speed_ball, max_speed_ball)
+
+	speed_ball = clamp(
+		speed_ball * 1.15,
+		min_speed_ball,
+		max_speed_ball
+	)
 	add_collision_exception_with(player_node)
-	active = true
+
 	for enemy in ignored_enemies:
 		if is_instance_valid(enemy):
 			remove_collision_exception_with(enemy)
+
 	ignored_enemies.clear()
 
-func find_nearest_enemy() -> Node2D:
-	var nearest_enemy: Node2D = null
-	var nearest_distance: float = aim_assist_radius
-	
-	for enemy in get_tree().get_nodes_in_group("Enemy"):
-		if enemy is Node2D:
-			var distance: float = global_position.distance_to(enemy.global_position)
-			if distance < nearest_distance:
-				nearest_distance = distance
-				nearest_enemy = enemy
-				
-	return nearest_enemy
+	set_physics_process(true)

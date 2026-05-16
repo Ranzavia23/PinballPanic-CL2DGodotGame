@@ -33,10 +33,12 @@ text = "Game Over"
 layout_mode = 2
 
 [node name="Restart" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer" unique_id=266503632]
+texture_filter = 1
 layout_mode = 2
 text = "Restart"
 
 [node name="Main Menu" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer" unique_id=1547106723]
+texture_filter = 1
 layout_mode = 2
 text = "Main menu
 "

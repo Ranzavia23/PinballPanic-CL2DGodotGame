@@ -32,11 +32,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
-	if can_aim_assist:
-		#_apply_aim_assist() setelah kena hit bola malah muterin enemy dan gk mantul wkwkwk
-		pass
-
+	# Hilangkan aim assist dari sini biar nggak muterin musuh!
 	velocity = direction * speed_ball
 	var collision = move_and_collide(velocity * delta)
 
@@ -45,64 +41,66 @@ func _physics_process(delta: float) -> void:
 
 	_handle_collision(collision)
 
-
 func _handle_collision(collision: KinematicCollision2D) -> void:
-
 	var collider = collision.get_collider()
-	scored_this_bounce = false
+	
+	# Skenario A: Nabrak Player
 	if collider.is_in_group("Player"):
 		if not is_deflected:
 			if collider.has_method("take_damage"):
 				collider.take_damage(damage_ball)
 			queue_free()
 		else:
-			_bounce(collision)
+			_bounce(collision, false) # Mantul biasa, jangan aim assist
 		return
 
+	# Skenario B: Nabrak Musuh
 	if collider.is_in_group("Enemy"):
 		if is_deflected:
 			if collider.has_method("take_damage"):
 				collider.take_damage(damage_ball)
-			_bounce(collision)
+				
+			# SKOR HANYA DITAMBAH DI SINI (Saat berhasil mukul musuh)
+			GameManager.add_score(100) 
+			
+			_bounce(collision, false) # Mantul random, jangan aim assist
 		else:
+			# Kalau belum dipukul, tembus aja!
 			add_collision_exception_with(collider)
 			ignored_enemies.append(collider)
 		return
-	_bounce(collision)
+		
+	# Skenario C: Nabrak Tembok / Objek Lain
+	# Nah, di sini baru boleh aktifin Aim Assist SEKALI tembak setelah mantul!
+	_bounce(collision, true)
 	
 
-func _bounce(collision: KinematicCollision2D) -> void:
-
-	if scored_this_bounce:
-		return
-
-	scored_this_bounce = true
-
+# Tambahkan parameter `can_trigger_aim` biar kita bisa atur kapan magnetnya nyala
+func _bounce(collision: KinematicCollision2D, can_trigger_aim: bool) -> void:
+	# Bikin pantulan
 	direction = direction.bounce(collision.get_normal()).normalized()
 
-	speed_ball = clamp(
-		speed_ball + speed_increase,
-		min_speed_ball,
-		max_speed_ball
-	)
+	# Tambah kecepatan tiap kali mantul (Fitur barunya Reva)
+	speed_ball = clamp(speed_ball + speed_increase, min_speed_ball, max_speed_ball)
 
+	# Kurangi HP/Nyawa bola
 	current_hp -= 1
 
-	GameManager.add_score(100)
+	# Aktifkan Aim Assist HANYA JIKA udah dipukul dan diizinkan (nabrak tembok)
+	if is_deflected and can_trigger_aim:
+		_apply_aim_assist_once()
 
-	if is_deflected:
-		can_aim_assist = true
-
+	# Hancur kalau HP habis
 	if current_hp <= 0:
 		queue_free()
 
-func _apply_aim_assist() -> void:
+func _apply_aim_assist_once() -> void:
 	var target = _find_nearest_enemy()
 	if target == null:
 		return
-
 	var to_enemy = (target.global_position - global_position).normalized()
 	direction = direction.lerp(to_enemy, aim_assist_strength).normalized()
+
 
 
 func _find_nearest_enemy() -> Node2D:

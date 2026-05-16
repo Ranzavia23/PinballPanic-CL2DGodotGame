@@ -30,6 +30,24 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_i26rj")
 
+[node name="HighScoreLabel" type="Label" parent="Control" unique_id=1798326430]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 473.0
+offset_top = 555.0
+offset_right = 1041.0
+offset_bottom = 692.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 16
+text = "High Score: "
+label_settings = SubResource("LabelSettings_eiy7p")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=883301535]
 layout_mode = 1
 anchors_preset = -1
@@ -51,13 +69,6 @@ custom_minimum_size = Vector2(60, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Start"
-
-[node name="Menu" type="Button" parent="Control/VBoxContainer" unique_id=1059438597]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Menu
-"
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer" unique_id=1275355214]
 custom_minimum_size = Vector2(0, 35)

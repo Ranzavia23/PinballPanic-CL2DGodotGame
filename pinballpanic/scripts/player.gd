@@ -120,7 +120,20 @@ func execute_attack():
 	is_attacking = false
 
 func take_damage(amount: int):
-	print("Awww aku kena damage sebanyak: ", amount)
+	if GameManager.player_hp <= 0:
+		return 
+		
+	GameManager.player_hp -= amount
+	print("Awww kena damage! Sisa HP: ", GameManager.player_hp)
+	GameManager.trigger_hit_pause(0.1) # Berhenti lama banget biar player sadar dia kena hit
+	GameManager.trigger_screen_shake(25.0) # Getar maksimal!
+
+	#KALAU DARAH HABIS
+	if GameManager.player_hp <= 0:
+		print("Player Mati! Pindah Layar Game Over...")
+		GameManager.player_hp = GameManager.max_hp 
+		get_tree().change_scene_to_file("res://scenes/GameOverState.tscn")
+		queue_free()
 
 #play animasi
 func update_animation():

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cfns37squ1sfh"]
 
-[ext_resource type="Script" uid="uid://fg5qrg2ox3xr" path="res://scenes/hud.gd" id="1_lrqej"]
+[ext_resource type="Script" uid="uid://fg5qrg2ox3xr" path="res://scripts/hud.gd" id="1_lrqej"]
 [ext_resource type="Texture2D" uid="uid://dr1livio5awu3" path="res://assets/placeholder-assets/hearts.png" id="1_skna5"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1372331566]
@@ -14,6 +14,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lrqej")
 
+[node name="Wave" type="Label" parent="HUD" unique_id=306515481]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 12.0
+offset_right = 640.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+text = "Wave"
+
+[node name="Score" type="Label" parent="HUD" unique_id=1891005162]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -227.0
+offset_top = 11.0
+offset_right = -184.0
+offset_bottom = 34.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUD" unique_id=420735561]
 layout_direction = 2
 layout_mode = 1
@@ -21,7 +43,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_left = 32.0
 offset_top = 8.0
-offset_right = 843.0
+offset_right = 2.0
 offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_constants/separation = 200
@@ -70,17 +92,8 @@ texture = ExtResource("1_skna5")
 layout_mode = 2
 texture = ExtResource("1_skna5")
 
-[node name="Wave" type="Label" parent="HUD/HBoxContainer2" unique_id=306515481]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
-text = "Wave"
-
-[node name="Score" type="Label" parent="HUD/HBoxContainer2" unique_id=1891005162]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Score"
-
 [node name="WaveAnnouncer" type="Control" parent="HUD" unique_id=260971627]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

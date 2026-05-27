@@ -15,12 +15,15 @@ extends CharacterBody2D
 @export var coyote_time: float = 0.1     #tolerate 0.1/0.2
 @export var jump_buffer_time: float = 0.1 
 
+@onready var swing_sound = $SwingSound
+@onready var hurt_sound = $HurtSound
 @onready var sprite = $AnimatedSprite2D
 @onready var shapecast = $AttackCast 
 
 # Global state var
+var is_invincible: bool = false
 var is_attacking := false
-var facing_direction := 1  
+var facing_direction: float = 1.0
 var attack_buffer_timer: float = 0.0
 var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
@@ -97,12 +100,21 @@ func handle_attack(delta):
 
 func execute_attack():
 	is_attacking = true
-	sprite.play("attack_swing")
+	
+	if is_instance_valid(swing_sound):
+		swing_sound.play()
+		
+	if is_on_floor():
+		sprite.play("attack_ground")
+		sprite.position.y = -5
+	else:
+		sprite.play("attack_aerial")
+		sprite.position.y = -5
+		
 	shapecast.force_shapecast_update()
 	if shapecast.is_colliding():
 		for i in range(shapecast.get_collision_count()):
 			var body = shapecast.get_collider(i)
-			#Deflect
 			if body.is_in_group("Projectile"):
 				var aim_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 				if aim_dir == Vector2.ZERO:
@@ -116,31 +128,44 @@ func execute_attack():
 			elif body.is_in_group("Enemy") and body.has_method("take_damage"):
 				var push_dir = (body.global_position - global_position).normalized()
 				body.take_damage(1, push_dir)
+				
 	await sprite.animation_finished
+	sprite.position.y = 0
 	is_attacking = false
 
 func take_damage(amount: int):
-	if GameManager.player_hp <= 0:
+	if is_invincible or GameManager.player_hp <= 0:
 		return 
-		
+	is_invincible = true
+	if is_instance_valid(hurt_sound):
+		hurt_sound.play()
 	GameManager.player_hp -= amount
 	print("Awww kena damage! Sisa HP: ", GameManager.player_hp)
-	GameManager.trigger_hit_pause(0.1) # Berhenti lama banget biar player sadar dia kena hit
-	GameManager.trigger_screen_shake(25.0) # Getar maksimal!
-
-	#KALAU DARAH HABIS
+	GameManager.trigger_hit_pause(0.1) 
+	GameManager.trigger_screen_shake(25.0) 
 	if GameManager.player_hp <= 0:
 		print("Player Mati! Pindah Layar Game Over...")
 		GameManager.player_hp = GameManager.max_hp 
 		get_tree().change_scene_to_file("res://scenes/GameOverState.tscn")
 		queue_free()
+		return 
+	for i in range(5):
+		if is_instance_valid(sprite):
+			sprite.visible = false
+		await get_tree().create_timer(0.1).timeout
+		if is_instance_valid(sprite):
+			sprite.visible = true
+		await get_tree().create_timer(0.1).timeout
+	is_invincible = false
 
 #play animasi
 func update_animation():
 	sprite.flip_h = facing_direction < 0
 	if is_attacking:
 		return  
-	if velocity.x != 0:
-		sprite.play("run")
+	if not is_on_floor():
+		sprite.play("jump") 
+	elif velocity.x != 0:
+		sprite.play("run") 
 	else:
-		sprite.play("idle")
+		sprite.play("idle") 

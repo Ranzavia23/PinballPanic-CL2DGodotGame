@@ -6,7 +6,7 @@ extends Control
 @onready var score_label = $Score
 @onready var hearts_container = $HBoxContainer2/Hearts
 @onready var game_manager = get_node("/root/GameManager")
-
+@onready var warning_sound = $"../WarningSound"
 
 func _ready():
 	wave_announcer.visible = false
@@ -19,10 +19,11 @@ func _ready():
 	update_hearts()
 
 func _process(_delta):
-	# Update label teks
+	#Update label teks
 	score_label.text = "Score: " + str(GameManager.score)
-	
-	# Update Hati
+	#Update Wave
+	wave_label.text = "Wave: " + str(GameManager.current_wave)
+	#Update Hati
 	var current_hp = GameManager.player_hp
 	var heart_nodes = hearts_container.get_children()
 	
@@ -35,6 +36,8 @@ func _process(_delta):
 func show_wave_incoming():
 	wave_announcer.visible = true
 	wave_incoming_label.text = "WAVE " + str(game_manager.current_wave) + " IS COMING"
+	if is_instance_valid(warning_sound):
+		warning_sound.play()
 	await get_tree().create_timer(3.0).timeout
 	wave_announcer.visible = false
 

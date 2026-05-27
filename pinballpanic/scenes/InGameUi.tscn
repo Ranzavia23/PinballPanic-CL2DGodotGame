@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fg5qrg2ox3xr" path="res://scripts/hud.gd" id="1_lrqej"]
 [ext_resource type="Texture2D" uid="uid://dr1livio5awu3" path="res://assets/placeholder-assets/hearts.png" id="1_skna5"]
+[ext_resource type="AudioStream" uid="uid://bc1q7y6sa7gtj" path="res://assets/SFX/Wave Incoming/warningsound.wav" id="3_06bad"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1372331566]
 
@@ -115,3 +116,6 @@ offset_bottom = 341.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Wave is Coming"
+
+[node name="WarningSound" type="AudioStreamPlayer2D" parent="." unique_id=1755938017]
+stream = ExtResource("3_06bad")

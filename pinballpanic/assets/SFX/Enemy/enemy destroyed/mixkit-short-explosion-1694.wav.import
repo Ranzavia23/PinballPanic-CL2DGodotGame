@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgwwrmflesp68"
+path="res://.godot/imported/mixkit-short-explosion-1694.wav-0fef841b9e4afb2f2bcedb437b345894.sample"
+
+[deps]
+
+source_file="res://assets/SFX/Enemy/enemy destroyed/mixkit-short-explosion-1694.wav"
+dest_files=["res://.godot/imported/mixkit-short-explosion-1694.wav-0fef841b9e4afb2f2bcedb437b345894.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

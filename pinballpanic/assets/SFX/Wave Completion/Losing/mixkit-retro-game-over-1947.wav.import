@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://30em4qlb4udl"
+path="res://.godot/imported/mixkit-retro-game-over-1947.wav-dc461ba2a9fecf71056d3a7ca39e7e1e.sample"
+
+[deps]
+
+source_file="res://assets/SFX/Wave Completion/Losing/mixkit-retro-game-over-1947.wav"
+dest_files=["res://.godot/imported/mixkit-retro-game-over-1947.wav-dc461ba2a9fecf71056d3a7ca39e7e1e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

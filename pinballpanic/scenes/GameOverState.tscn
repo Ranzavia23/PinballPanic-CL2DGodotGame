@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0jiyo6ehl0l3"]
 
 [ext_resource type="Script" uid="uid://pwnefsciyolw" path="res://scripts/GameOverState.gd" id="1_se5v8"]
+[ext_resource type="AudioStream" uid="uid://bttrvexam1q0x" path="res://assets/SFX/Wave Completion/Losing/mixkit-falling-game-over-1942.wav" id="2_vgsbf"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1026792486]
 
@@ -42,6 +43,10 @@ texture_filter = 1
 layout_mode = 2
 text = "Main menu
 "
+
+[node name="LosingBGM" type="AudioStreamPlayer" parent="." unique_id=754887056]
+stream = ExtResource("2_vgsbf")
+autoplay = true
 
 [connection signal="pressed" from="Control/Panel/VBoxContainer/HBoxContainer/Restart" to="Control" method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/HBoxContainer/Main Menu" to="Control" method="_on_main_menu_pressed"]

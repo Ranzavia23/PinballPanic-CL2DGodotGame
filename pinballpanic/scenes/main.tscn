@@ -2,10 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://ds6dmx8ly1hu3" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://dyuncablksb11" path="res://assets/placeholder-assets/BG_Placeholder.jpg" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://k0qk1fdcma32" path="res://scripts/environment.gd" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://bgpswj3g25fgm" path="res://scenes/turret.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bpdhks3eqtwwo" path="res://scenes/bumper.tscn" id="5_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bad771c57iggh" path="res://scenes/enemy_spawner_new.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://q76kwjekq0up" path="res://scripts/camera_2d.gd" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cfns37squ1sfh" path="res://scenes/InGameUi.tscn" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://nj0jtjbe5bpq" path="res://assets/Musics/fscm-productions-the-hunting.mp3" id="7_o6xl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
 size = Vector2(1160, 20)
@@ -25,6 +28,7 @@ b = Vector2(281, 0)
 [node name="main" type="Node2D" unique_id=1148015703]
 
 [node name="Environment" type="Node2D" parent="." unique_id=1509709140]
+script = ExtResource("1_tipki")
 
 [node name="background" type="TextureRect" parent="Environment" unique_id=177032560]
 anchors_preset = 15
@@ -96,10 +100,13 @@ one_way_collision = true
 debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 
 [node name="Enemy_Spawner" parent="Environment" unique_id=305030950 instance=ExtResource("5_tbgi4")]
+bumper_scene = ExtResource("5_85g3d")
 
 [node name="Player" parent="." unique_id=1616736911 instance=ExtResource("1_o5qli")]
 position = Vector2(578.00006, 608.00006)
 scale = Vector2(5, 5)
+
+[node name="Bumper" parent="." unique_id=158029156 instance=ExtResource("5_85g3d")]
 
 [node name="Turret" parent="." unique_id=18618341 instance=ExtResource("3_sugp2")]
 position = Vector2(8, 344)
@@ -111,5 +118,9 @@ position = Vector2(1144, 345)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=722779357]
 anchor_mode = 0
-zoom = Vector2(1, 0.993)
+zoom = Vector2(1, 0.96)
 script = ExtResource("6_o6xl0")
+
+[node name="CombatBGM" type="AudioStreamPlayer" parent="." unique_id=1488592838]
+stream = ExtResource("7_o6xl0")
+autoplay = true

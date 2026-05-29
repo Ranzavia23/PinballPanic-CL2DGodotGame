@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cabvdt0sdoch"
-path="res://.godot/imported/fscm-productions-decisive-hours.mp3-6d862ff41c9abc342cd95ef07615b28d.mp3str"
+path="res://.godot/imported/fscm-productions-decisive-hours.mp3-5789b147b2e8f1eac6c6dec26d83d83b.mp3str"
 
 [deps]
 
-source_file="res://assets/Musics/fscm-productions-decisive-hours.mp3"
-dest_files=["res://.godot/imported/fscm-productions-decisive-hours.mp3-6d862ff41c9abc342cd95ef07615b28d.mp3str"]
+source_file="res://assets/placeholder-assets/Musics/fscm-productions-decisive-hours.mp3"
+dest_files=["res://.godot/imported/fscm-productions-decisive-hours.mp3-5789b147b2e8f1eac6c6dec26d83d83b.mp3str"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b7gxf25f6p5ia"
-path="res://.godot/imported/fscm-productions-epic-battle.mp3-e5be02cf42081e2dce08972759d398ea.mp3str"
+path="res://.godot/imported/fscm-productions-epic-battle.mp3-ad635f123a5290b8754bb9476215a7d2.mp3str"
 
 [deps]
 
-source_file="res://assets/Musics/fscm-productions-epic-battle.mp3"
-dest_files=["res://.godot/imported/fscm-productions-epic-battle.mp3-e5be02cf42081e2dce08972759d398ea.mp3str"]
+source_file="res://assets/placeholder-assets/Musics/fscm-productions-epic-battle.mp3"
+dest_files=["res://.godot/imported/fscm-productions-epic-battle.mp3-ad635f123a5290b8754bb9476215a7d2.mp3str"]
 
 [params]
 

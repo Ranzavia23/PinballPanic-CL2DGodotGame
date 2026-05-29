@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8w7nyko2r2ip"
-path="res://.godot/imported/ball speed up.png-4cbdfbc8cfb85d62deb28037580fb352.ctex"
+path="res://.godot/imported/ball speed up.png-771cef45d84c5ea9c324e8f0a805b336.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Ball/ball speed up.png"
-dest_files=["res://.godot/imported/ball speed up.png-4cbdfbc8cfb85d62deb28037580fb352.ctex"]
+source_file="res://assets/placeholder-assets/Enemy/Ball/ball speed up.png"
+dest_files=["res://.godot/imported/ball speed up.png-771cef45d84c5ea9c324e8f0a805b336.ctex"]
 
 [params]
 

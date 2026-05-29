@@ -54,6 +54,7 @@ offset_left = 170.0
 offset_top = 268.0
 offset_right = 1718.0
 offset_bottom = 370.0
+theme_override_fonts/font = ExtResource("4_0rsbv")
 theme_override_font_sizes/font_size = 74
 text = "High Score:                             Wave:"
 
@@ -74,6 +75,16 @@ theme_override_font_sizes/font_size = 74
 text = "Score:                             Wave:"
 
 [node name="Label3" type="Label" parent="VBoxContainer" unique_id=816377139]
+layout_mode = 2
+theme_override_font_sizes/font_size = 74
+text = "Score:                             Wave:"
+
+[node name="Label5" type="Label" parent="VBoxContainer" unique_id=1584009459]
+layout_mode = 2
+theme_override_font_sizes/font_size = 74
+text = "Score:                             Wave:"
+
+[node name="Label6" type="Label" parent="VBoxContainer" unique_id=1337978757]
 layout_mode = 2
 theme_override_font_sizes/font_size = 74
 text = "Score:                             Wave:"

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c2tn0m660r1mc"
-path="res://.godot/imported/fscm-productions-prepare-for-war.mp3-2c3d305f242862ebe139a5922dca9fdb.mp3str"
+path="res://.godot/imported/fscm-productions-prepare-for-war.mp3-7ef2218caadf3da5fe8a11e68eaeeab6.mp3str"
 
 [deps]
 
-source_file="res://assets/Musics/fscm-productions-prepare-for-war.mp3"
-dest_files=["res://.godot/imported/fscm-productions-prepare-for-war.mp3-2c3d305f242862ebe139a5922dca9fdb.mp3str"]
+source_file="res://assets/placeholder-assets/Musics/fscm-productions-prepare-for-war.mp3"
+dest_files=["res://.godot/imported/fscm-productions-prepare-for-war.mp3-7ef2218caadf3da5fe8a11e68eaeeab6.mp3str"]
 
 [params]
 

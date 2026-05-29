@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://by02tf1uvxves"
-path="res://.godot/imported/enemy seeker damaged.png-9136f13e740591367b506eea78e1bda5.ctex"
+path="res://.godot/imported/enemy seeker damaged.png-ef92ad30469c25803128d6d846cf5d94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Seeker/enemy seeker damaged.png"
-dest_files=["res://.godot/imported/enemy seeker damaged.png-9136f13e740591367b506eea78e1bda5.ctex"]
+source_file="res://assets/placeholder-assets/Enemy/Seeker/enemy seeker damaged.png"
+dest_files=["res://.godot/imported/enemy seeker damaged.png-ef92ad30469c25803128d6d846cf5d94.ctex"]
 
 [params]
 

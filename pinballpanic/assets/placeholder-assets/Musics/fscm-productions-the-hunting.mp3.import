@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://nj0jtjbe5bpq"
-path="res://.godot/imported/fscm-productions-the-hunting.mp3-1e49885af6b783a56f78545b27b732d3.mp3str"
+path="res://.godot/imported/fscm-productions-the-hunting.mp3-15d6e816de8b494bc8790b1d5b2ccb4d.mp3str"
 
 [deps]
 
-source_file="res://assets/Musics/fscm-productions-the-hunting.mp3"
-dest_files=["res://.godot/imported/fscm-productions-the-hunting.mp3-1e49885af6b783a56f78545b27b732d3.mp3str"]
+source_file="res://assets/placeholder-assets/Musics/fscm-productions-the-hunting.mp3"
+dest_files=["res://.godot/imported/fscm-productions-the-hunting.mp3-15d6e816de8b494bc8790b1d5b2ccb4d.mp3str"]
 
 [params]
 

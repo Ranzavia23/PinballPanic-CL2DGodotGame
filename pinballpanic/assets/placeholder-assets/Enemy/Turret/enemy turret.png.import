@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddy4qrlupcsci"
-path="res://.godot/imported/enemy turret.png-c41ed4c922607ef82944d11f82eceac3.ctex"
+path="res://.godot/imported/enemy turret.png-c9c93e4145544ee2cdf2f2fde6bb204d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Turret/enemy turret.png"
-dest_files=["res://.godot/imported/enemy turret.png-c41ed4c922607ef82944d11f82eceac3.ctex"]
+source_file="res://assets/placeholder-assets/Enemy/Turret/enemy turret.png"
+dest_files=["res://.godot/imported/enemy turret.png-c9c93e4145544ee2cdf2f2fde6bb204d.ctex"]
 
 [params]
 

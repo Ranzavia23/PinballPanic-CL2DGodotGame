@@ -43,6 +43,7 @@ func add_score(value: int) -> void:
 		high_score = score
 		save_high_score()
 	
+	
 func reset_game():
 	score = 0
 	current_wave = 1
@@ -65,6 +66,7 @@ func load_high_score():
 			high_score = file.get_32()
 			file.close()
 			print("High Score berhasil diload: ", high_score)
+			
 
 #Game Juice
 signal screen_shake_requested(intensity: float)

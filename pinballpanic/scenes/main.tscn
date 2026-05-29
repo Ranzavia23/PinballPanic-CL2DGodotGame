@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bad771c57iggh" path="res://scenes/enemy_spawner_new.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://q76kwjekq0up" path="res://scripts/camera_2d.gd" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cfns37squ1sfh" path="res://scenes/InGameUi.tscn" id="6_tefeu"]
-[ext_resource type="AudioStream" uid="uid://nj0jtjbe5bpq" path="res://assets/Musics/fscm-productions-the-hunting.mp3" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://nj0jtjbe5bpq" path="res://assets/placeholder-assets/Musics/fscm-productions-the-hunting.mp3" id="7_o6xl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
 size = Vector2(1160, 20)
@@ -138,6 +138,7 @@ position = Vector2(578.00006, 608.00006)
 scale = Vector2(5, 5)
 
 [node name="Bumper" parent="." unique_id=158029156 instance=ExtResource("5_85g3d")]
+visible = false
 
 [node name="Turret" parent="." unique_id=18618341 instance=ExtResource("3_sugp2")]
 position = Vector2(8, 344)

@@ -4,6 +4,8 @@ extends Control
 func _ready():
 	high_score_label.text = "High Score: " + str(GameManager.high_score)
 	$AnimationPlayer.play("HUD Menu")
+	$"../AnimatedSprite2D".play("default")
+	$"../AnimatedSprite2D/AnimationPlayer".play("anim-idle")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
@@ -15,3 +17,4 @@ func _on_start_pressed() -> void:
 
 func _on_leaderboards_pressed() -> void:
 	get_tree().change_scene_to_file("res://Leaderboards.tscn")
+	

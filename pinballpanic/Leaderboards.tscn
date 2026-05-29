@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://byk4ia1txm25p"]
 
+[ext_resource type="Script" uid="uid://diff5frxty8h8" path="res://leaderboards.gd" id="1_0rsbv"]
 [ext_resource type="Texture2D" uid="uid://d24bnrtrpsx3x" path="res://Pinball Panic/Background/background base.png" id="1_8shsa"]
 [ext_resource type="Texture2D" uid="uid://cnxu55xco04xq" path="res://Pinball Panic/Background/background platform back.png" id="2_xmj1v"]
 [ext_resource type="Texture2D" uid="uid://dd3qyon88et5f" path="res://Pinball Panic/Background/background platform front.png" id="3_qoohl"]
 [ext_resource type="FontFile" uid="uid://tlsr8nwbn35n" path="res://Pinball Panic/Fonts/super_wonder/Super Wonder.ttf" id="4_0rsbv"]
+[ext_resource type="Texture2D" uid="uid://cie7fp8t6nknl" path="res://Pinball Panic/CLOSE BUTTON.jpeg" id="6_r02r6"]
+[ext_resource type="Texture2D" uid="uid://0ard5epufunt" path="res://Pinball Panic/SFX/CLOSEPRESSED.jpeg" id="7_mm5cn"]
 
 [node name="Node2D" type="Node2D" unique_id=328880744]
+script = ExtResource("1_0rsbv")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=4116256]
 offset_left = -9.0
@@ -29,7 +33,7 @@ offset_bottom = 1279.0
 texture = ExtResource("3_qoohl")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1059773091]
-offset_left = 178.0
+offset_left = 113.0
 offset_top = 137.0
 offset_right = 2208.0
 offset_bottom = 1196.0
@@ -45,13 +49,21 @@ theme_override_fonts/font = ExtResource("4_0rsbv")
 theme_override_font_sizes/font_size = 164
 text = "Leaderboards"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=444589057]
-offset_left = 380.0
-offset_top = 429.0
-offset_right = 1928.0
-offset_bottom = 1177.0
+[node name="Label" type="Label" parent="." unique_id=1046356536]
+offset_left = 170.0
+offset_top = 268.0
+offset_right = 1718.0
+offset_bottom = 370.0
+theme_override_font_sizes/font_size = 74
+text = "High Score:                             Wave:"
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1046356536]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=444589057]
+offset_left = 384.0
+offset_top = 478.0
+offset_right = 1932.0
+offset_bottom = 1113.0
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=2067522301]
 layout_mode = 2
 theme_override_font_sizes/font_size = 74
 text = "Score:                             Wave:"
@@ -69,3 +81,14 @@ text = "Score:                             Wave:"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=375906445]
 position = Vector2(1144, 616)
 zoom = Vector2(0.515, 0.515)
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1196498001]
+offset_left = 177.99997
+offset_top = 80.99999
+offset_right = 1778.0
+offset_bottom = 1281.0
+scale = Vector2(0.105, 0.105)
+texture_normal = ExtResource("6_r02r6")
+texture_pressed = ExtResource("7_mm5cn")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

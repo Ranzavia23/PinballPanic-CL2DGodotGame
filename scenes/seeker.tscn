@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://l30g5tmem0ah"]
+
+[ext_resource type="Script" uid="uid://cty6shimckjps" path="res://scripts/seeker.gd" id="1_1natk"]
+[ext_resource type="Texture2D" uid="uid://by02tf1uvxves" path="res://assets/Enemy/Seeker/enemy seeker damaged.png" id="2_b8lsa"]
+[ext_resource type="Texture2D" uid="uid://budk5mqlq5c33" path="res://assets/Enemy/Seeker/enemy seeker 1.png" id="3_ngj2u"]
+[ext_resource type="Texture2D" uid="uid://bep8s5ry5oxqc" path="res://assets/Enemy/Seeker/enemy seeker 2.png" id="4_qdvro"]
+[ext_resource type="Texture2D" uid="uid://4gnxpadvbedq" path="res://assets/Enemy/Seeker/enemy seeker 3.png" id="5_ro7x2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htos2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b8lsa")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ngj2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qdvro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ro7x2")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mhj8"]
+size = Vector2(183.43755, 92.00002)
+
+[node name="Seeker" type="CharacterBody2D" unique_id=1557054355]
+scale = Vector2(5, 5)
+script = ExtResource("1_1natk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1939962584]
+texture_filter = 1
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_htos2")
+animation = &"hover"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2109067817]
+position = Vector2(0.22812535, 0.99999976)
+scale = Vector2(0.09999996, 0.09999996)
+shape = SubResource("RectangleShape2D_8mhj8")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1291962301]
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1858353318]

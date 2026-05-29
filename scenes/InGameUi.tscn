@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://cfns37squ1sfh"]
+
+[ext_resource type="Script" uid="uid://fg5qrg2ox3xr" path="res://scripts/hud.gd" id="1_lrqej"]
+[ext_resource type="Texture2D" uid="uid://dr1livio5awu3" path="res://assets/placeholder-assets/hearts.png" id="1_skna5"]
+[ext_resource type="FontFile" uid="uid://tlsr8nwbn35n" path="res://Pinball Panic/Fonts/super_wonder/Super Wonder.ttf" id="2_bpq00"]
+[ext_resource type="AudioStream" uid="uid://bc1q7y6sa7gtj" path="res://assets/SFX/Wave Incoming/warningsound.wav" id="3_06bad"]
+[ext_resource type="FontFile" uid="uid://brkp0vrityi7p" path="res://Pinball Panic/Fonts/super_hockey/Super Hockey.ttf" id="3_drbl7"]
+[ext_resource type="Script" uid="uid://c5v0g0kbvdwtq" path="res://scenes/label.gd" id="5_ixl8c"]
+
+[sub_resource type="Animation" id="Animation_bpq00"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/WaveAnnouncer/ColorRect/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(299, 270)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/WaveAnnouncer/ColorRect/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ixl8c"]
+resource_name = "wave"
+length = 4.0666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/WaveAnnouncer/ColorRect/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-541, 299), Vector2(299, 270)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/WaveAnnouncer/ColorRect/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 1.2666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lijoi"]
+_data = {
+&"RESET": SubResource("Animation_bpq00"),
+&"wave": SubResource("Animation_ixl8c")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1372331566]
+
+[node name="Control" type="Control" parent="." unique_id=717858577]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lrqej")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=2049124003]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 1158.0
+offset_bottom = 92.0
+color = Color(0.1764706, 0.18431373, 0.27450982, 0.57254905)
+
+[node name="Wave" type="Label" parent="Control" unique_id=306515481]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 48.0
+offset_right = 192.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_bpq00")
+theme_override_font_sizes/font_size = 35
+text = "Wave"
+
+[node name="Score" type="Label" parent="Control" unique_id=1891005162]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -358.0
+offset_top = 32.0
+offset_right = -247.0
+offset_bottom = 84.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_bpq00")
+theme_override_font_sizes/font_size = 37
+text = "Score"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control" unique_id=420735561]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(1.21, 1.21)
+theme_override_constants/separation = 200
+
+[node name="Hearts" type="HBoxContainer" parent="Control/HBoxContainer2" unique_id=571157168]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=977025766]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=49868645]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=1061780161]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=606686499]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect5" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=1304402940]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect6" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=820031311]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect7" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=522081018]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect8" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=378166373]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect9" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=184540051]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="TextureRect10" type="TextureRect" parent="Control/HBoxContainer2/Hearts" unique_id=1584674759]
+layout_mode = 2
+texture = ExtResource("1_skna5")
+
+[node name="WaveAnnouncer" type="Control" parent="Control" unique_id=260971627]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/WaveAnnouncer" unique_id=704663795]
+layout_mode = 0
+offset_left = -17.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.6955953, 0.0060441154, 2.8878452e-07, 1)
+
+[node name="Label" type="Label" parent="Control/WaveAnnouncer/ColorRect" unique_id=137192570]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 270.0
+offset_right = 840.0
+offset_bottom = 361.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_drbl7")
+theme_override_font_sizes/font_size = 73
+text = "Wave is Coming"
+script = ExtResource("5_ixl8c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/WaveAnnouncer/ColorRect" unique_id=99155232]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_lijoi")
+
+[node name="WarningSound" type="AudioStreamPlayer2D" parent="." unique_id=1755938017]
+stream = ExtResource("3_06bad")

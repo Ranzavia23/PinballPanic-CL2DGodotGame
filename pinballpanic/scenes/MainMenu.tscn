@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ck4evjf300udm"]
 
+[ext_resource type="Texture2D" uid="uid://d24bnrtrpsx3x" path="res://Pinball Panic/Background/background base.png" id="1_2wh52"]
 [ext_resource type="Script" uid="uid://boehy3hvln4b4" path="res://scripts/control.gd" id="1_i26rj"]
 [ext_resource type="AudioStream" uid="uid://c2tn0m660r1mc" path="res://assets/Musics/fscm-productions-prepare-for-war.mp3" id="2_0ykhv"]
 
@@ -15,6 +16,13 @@ shadow_offset = Vector2(5, 5)
 offset_right = 1155.0
 offset_bottom = 643.0
 color = Color(0.26330522, 0.77429587, 0.8036202, 1)
+
+[node name="bg ui" type="Node" parent="." unique_id=1778799266]
+
+[node name="TextureRect" type="TextureRect" parent="bg ui" unique_id=1007224963]
+offset_right = 2312.0
+offset_bottom = 1297.0
+texture = ExtResource("1_2wh52")
 
 [node name="Label" type="Label" parent="." unique_id=987146529]
 offset_left = 240.0

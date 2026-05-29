@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cm42jlauqqq40"
+path="res://.godot/imported/mixkit-winning-swoosh-2017.wav-15a804d6face1d6cbe1ee9f04a1fdede.sample"
+
+[deps]
+
+source_file="res://Pinball Panic/SFX/Wave Completion/Winning/mixkit-winning-swoosh-2017.wav"
+dest_files=["res://.godot/imported/mixkit-winning-swoosh-2017.wav-15a804d6face1d6cbe1ee9f04a1fdede.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

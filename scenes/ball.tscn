@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dnrhaiswcdfds"]
+
+[ext_resource type="Script" uid="uid://c5cmueba5qno8" path="res://scripts/ball.gd" id="1_cxlvu"]
+[ext_resource type="Texture2D" uid="uid://bhwklmcebmk7k" path="res://assets/Enemy/Ball/ball normal.png" id="2_4dx81"]
+[ext_resource type="Texture2D" uid="uid://8w7nyko2r2ip" path="res://assets/Enemy/Ball/ball speed up.png" id="3_eew57"]
+[ext_resource type="Texture2D" uid="uid://dvk1cmwkgqnce" path="res://assets/Enemy/Ball/ball stretch.png" id="4_jj7gd"]
+[ext_resource type="AudioStream" uid="uid://k8vcvfiu80jt" path="res://assets/SFX/Ball/mixkit-game-ball-tap-2073.wav" id="5_eew57"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwo8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4dx81")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eew57")
+}],
+"loop": false,
+"name": &"speedup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jj7gd")
+}],
+"loop": false,
+"name": &"stretch",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dx81"]
+radius = 9.0
+
+[node name="ball" type="CharacterBody2D" unique_id=108031452]
+script = ExtResource("1_cxlvu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1779513519]
+scale = Vector2(0.1669922, 0.1640625)
+sprite_frames = SubResource("SpriteFrames_fwo8l")
+animation = &"speedup"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1847615196]
+shape = SubResource("CircleShape2D_4dx81")
+
+[node name="BounceSound" type="AudioStreamPlayer2D" parent="." unique_id=734138146]
+stream = ExtResource("5_eew57")

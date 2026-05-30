@@ -9,6 +9,7 @@ var knockback: Vector2 = Vector2.ZERO
 @onready var hit_sound = $HitSound
 @onready var death_sound = $DeathSound
 
+
 func _ready():
 	add_to_group("Enemy") 
 	player = get_tree().get_first_node_in_group("Player")
@@ -85,6 +86,19 @@ func take_damage(amount: int, push_dir: Vector2 = Vector2.ZERO):
 			sprite.play("hover")
 
 func update_animation():
-	sprite.flip_h = facing_direction > 0
+
+	
 	if sprite.animation != "damaged":
 		sprite.play("hover")
+	if GameManager.current_wave <= 1:
+		sprite.flip_h = false
+		return
+	else: 
+		sprite.flip_h = facing_direction >0 	
+		
+		
+		
+		
+		
+			
+		

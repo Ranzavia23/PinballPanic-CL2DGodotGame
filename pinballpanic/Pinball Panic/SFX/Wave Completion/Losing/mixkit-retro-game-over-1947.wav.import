@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xxyaxjhubuxr"
+path="res://.godot/imported/mixkit-retro-game-over-1947.wav-793ba1a5113f5547c44b9295643c0351.sample"
+
+[deps]
+
+source_file="res://Pinball Panic/SFX/Wave Completion/Losing/mixkit-retro-game-over-1947.wav"
+dest_files=["res://.godot/imported/mixkit-retro-game-over-1947.wav-793ba1a5113f5547c44b9295643c0351.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

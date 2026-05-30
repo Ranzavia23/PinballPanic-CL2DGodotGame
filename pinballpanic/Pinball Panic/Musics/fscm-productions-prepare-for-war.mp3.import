@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ch2y4cyu0ojby"
+path="res://.godot/imported/fscm-productions-prepare-for-war.mp3-eac360de6efd900a39da109f7bc9c480.mp3str"
+
+[deps]
+
+source_file="res://Pinball Panic/Musics/fscm-productions-prepare-for-war.mp3"
+dest_files=["res://.godot/imported/fscm-productions-prepare-for-war.mp3-eac360de6efd900a39da109f7bc9c480.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

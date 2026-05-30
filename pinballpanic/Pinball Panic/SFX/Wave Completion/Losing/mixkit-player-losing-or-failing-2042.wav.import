@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3ku48x8ltno6"
+path="res://.godot/imported/mixkit-player-losing-or-failing-2042.wav-62e6ee5b5a10771be8277e12a4d92a6f.sample"
+
+[deps]
+
+source_file="res://Pinball Panic/SFX/Wave Completion/Losing/mixkit-player-losing-or-failing-2042.wav"
+dest_files=["res://.godot/imported/mixkit-player-losing-or-failing-2042.wav-62e6ee5b5a10771be8277e12a4d92a6f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

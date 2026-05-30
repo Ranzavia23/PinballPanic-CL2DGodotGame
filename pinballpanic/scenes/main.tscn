@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://dlovmwy1lc8tb"]
 
 [ext_resource type="PackedScene" uid="uid://ds6dmx8ly1hu3" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://dyuncablksb11" path="res://assets/placeholder-assets/BG_Placeholder.jpg" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://k0qk1fdcma32" path="res://scripts/environment.gd" id="1_tipki"]
+[ext_resource type="Texture2D" uid="uid://d24bnrtrpsx3x" path="res://Pinball Panic/Background/background base.png" id="2_choun"]
 [ext_resource type="PackedScene" uid="uid://bgpswj3g25fgm" path="res://scenes/turret.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://cnxu55xco04xq" path="res://Pinball Panic/Background/background platform back.png" id="3_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://dd3qyon88et5f" path="res://Pinball Panic/Background/background platform front.png" id="4_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bpdhks3eqtwwo" path="res://scenes/bumper.tscn" id="5_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bad771c57iggh" path="res://scenes/enemy_spawner_new.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://q76kwjekq0up" path="res://scripts/camera_2d.gd" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cfns37squ1sfh" path="res://scenes/InGameUi.tscn" id="6_tefeu"]
-[ext_resource type="AudioStream" uid="uid://nj0jtjbe5bpq" path="res://assets/Musics/fscm-productions-the-hunting.mp3" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://nj0jtjbe5bpq" path="res://assets/placeholder-assets/Musics/fscm-productions-the-hunting.mp3" id="7_o6xl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
 size = Vector2(1160, 20)
@@ -26,6 +28,7 @@ b = Vector2(334, 0)
 b = Vector2(281, 0)
 
 [node name="main" type="Node2D" unique_id=1148015703]
+position = Vector2(-380, -1731)
 
 [node name="Environment" type="Node2D" parent="." unique_id=1509709140]
 script = ExtResource("1_tipki")
@@ -38,8 +41,36 @@ offset_right = 1150.0
 offset_bottom = 650.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_sugp2")
+texture = ExtResource("2_choun")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="background2" type="TextureRect" parent="Environment" unique_id=92242112]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1150.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ya4ey")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="background3" type="TextureRect" parent="Environment" unique_id=1974166591]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -92.0
+offset_right = 1092.0
+offset_bottom = 558.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("4_ya4ey")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Ground" type="StaticBody2D" parent="Environment" unique_id=41075021]
 position = Vector2(0, 648)
@@ -107,6 +138,7 @@ position = Vector2(578.00006, 608.00006)
 scale = Vector2(5, 5)
 
 [node name="Bumper" parent="." unique_id=158029156 instance=ExtResource("5_85g3d")]
+visible = false
 
 [node name="Turret" parent="." unique_id=18618341 instance=ExtResource("3_sugp2")]
 position = Vector2(8, 344)

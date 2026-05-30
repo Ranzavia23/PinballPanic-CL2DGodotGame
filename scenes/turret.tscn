@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bgpswj3g25fgm"]
+
+[ext_resource type="Script" uid="uid://ve0bdssl1l53" path="res://scripts/turret.gd" id="1_el7wl"]
+[ext_resource type="PackedScene" uid="uid://dnrhaiswcdfds" path="res://scenes/ball.tscn" id="2_485p4"]
+[ext_resource type="Texture2D" uid="uid://d1u7vypbp3k0v" path="res://assets/Enemy/Turret/enemy turret fire.png" id="3_6fjxm"]
+[ext_resource type="Texture2D" uid="uid://ddy4qrlupcsci" path="res://assets/Enemy/Turret/enemy turret.png" id="4_dirdf"]
+[ext_resource type="Texture2D" uid="uid://bixrlf427xwgu" path="res://assets/Enemy/Turret/enemy turret fire effect2.png" id="5_mqfwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp6j5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dv4j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6fjxm")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dirdf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Turret" type="StaticBody2D" unique_id=18618341]
+scale = Vector2(4, 4)
+script = ExtResource("1_el7wl")
+projectile_scene = ExtResource("2_485p4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1412221272]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_pp6j5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=26220461]
+texture_filter = 1
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_0dv4j")
+animation = &"fire"
+
+[node name="FireEffect" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1995301983]
+visible = false
+position = Vector2(310.25, 88)
+texture = ExtResource("5_mqfwu")
+
+[node name="Timer" type="Timer" parent="." unique_id=1009962696]
+
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=1814532698]
+position = Vector2(6, 0)

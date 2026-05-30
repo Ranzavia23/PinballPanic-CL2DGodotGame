@@ -5,4 +5,3 @@ func _ready():
 
 func _on_walls_activated():
 	print("TEMBOK AKTIF!")
-	GameManager.trigger_screen_shake(10.0)

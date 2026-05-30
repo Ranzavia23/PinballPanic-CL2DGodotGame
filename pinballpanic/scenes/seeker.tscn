@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://budk5mqlq5c33" path="res://assets/placeholder-assets/Enemy/Seeker/enemy seeker 1.png" id="3_ngj2u"]
 [ext_resource type="Texture2D" uid="uid://bep8s5ry5oxqc" path="res://assets/placeholder-assets/Enemy/Seeker/enemy seeker 2.png" id="4_qdvro"]
 [ext_resource type="Texture2D" uid="uid://4gnxpadvbedq" path="res://assets/placeholder-assets/Enemy/Seeker/enemy seeker 3.png" id="5_ro7x2"]
+[ext_resource type="AudioStream" uid="uid://dnn1sg2gd7pjr" path="res://assets/SFX/Enemy/enemy hit or damaged/mixkit-arcade-mechanical-bling-210.wav" id="6_qdvro"]
+[ext_resource type="AudioStream" uid="uid://c757jun0mx2bw" path="res://assets/SFX/Enemy/enemy destroyed/mixkit-arcade-game-explosion-2759.wav" id="7_ro7x2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_htos2"]
 animations = [{
@@ -49,6 +51,8 @@ position = Vector2(0.22812535, 0.99999976)
 scale = Vector2(0.09999996, 0.09999996)
 shape = SubResource("RectangleShape2D_8mhj8")
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1291962301]
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1873887331]
+stream = ExtResource("6_qdvro")
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1858353318]
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1536072454]
+stream = ExtResource("7_ro7x2")

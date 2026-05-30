@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ve0bdssl1l53" path="res://scripts/turret.gd" id="1_el7wl"]
 [ext_resource type="PackedScene" uid="uid://dnrhaiswcdfds" path="res://scenes/ball.tscn" id="2_485p4"]
-[ext_resource type="Texture2D" uid="uid://d1u7vypbp3k0v" path="res://assets/Enemy/Turret/enemy turret fire.png" id="3_6fjxm"]
-[ext_resource type="Texture2D" uid="uid://ddy4qrlupcsci" path="res://assets/Enemy/Turret/enemy turret.png" id="4_dirdf"]
-[ext_resource type="Texture2D" uid="uid://bixrlf427xwgu" path="res://assets/Enemy/Turret/enemy turret fire effect2.png" id="5_mqfwu"]
+[ext_resource type="Texture2D" uid="uid://d1u7vypbp3k0v" path="res://assets/placeholder-assets/Enemy/Turret/enemy turret fire.png" id="3_6fjxm"]
+[ext_resource type="Texture2D" uid="uid://ddy4qrlupcsci" path="res://assets/placeholder-assets/Enemy/Turret/enemy turret.png" id="4_dirdf"]
+[ext_resource type="Texture2D" uid="uid://bixrlf427xwgu" path="res://assets/placeholder-assets/Enemy/Turret/enemy turret fire effect2.png" id="5_mqfwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp6j5"]
 

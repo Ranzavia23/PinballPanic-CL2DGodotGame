@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://tlsr8nwbn35n" path="res://Pinball Panic/Fonts/super_wonder/Super Wonder.ttf" id="2_bpq00"]
 [ext_resource type="AudioStream" uid="uid://bc1q7y6sa7gtj" path="res://assets/SFX/Wave Incoming/warningsound.wav" id="3_06bad"]
 [ext_resource type="FontFile" uid="uid://brkp0vrityi7p" path="res://Pinball Panic/Fonts/super_hockey/Super Hockey.ttf" id="3_drbl7"]
-[ext_resource type="Script" uid="uid://c5v0g0kbvdwtq" path="res://scenes/label.gd" id="5_ixl8c"]
+[ext_resource type="Script" uid="uid://c5v0g0kbvdwtq" path="res://scripts/label.gd" id="5_ixl8c"]
 
 [sub_resource type="Animation" id="Animation_bpq00"]
 length = 0.001
@@ -207,3 +207,4 @@ libraries/ = SubResource("AnimationLibrary_lijoi")
 
 [node name="WarningSound" type="AudioStreamPlayer2D" parent="." unique_id=1755938017]
 stream = ExtResource("3_06bad")
+volume_db = -9.0

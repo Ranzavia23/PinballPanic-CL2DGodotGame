@@ -16,19 +16,25 @@
 size = Vector2(1160, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
-size = Vector2(355, 42)
+size = Vector2(320, 31)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_sugp2"]
-b = Vector2(280, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(82, 50)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_jyhfs"]
-b = Vector2(334, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
+size = Vector2(82, 50)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_tbgi4"]
-b = Vector2(281, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
+size = Vector2(353.21875, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(422, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
+size = Vector2(324.375, 18)
 
 [node name="main" type="Node2D" unique_id=1148015703]
-position = Vector2(-380, -1731)
+position = Vector2(-12, -11)
 
 [node name="Environment" type="Node2D" parent="." unique_id=1509709140]
 script = ExtResource("1_tipki")
@@ -84,8 +90,14 @@ debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 position = Vector2(11, 281)
 
 [node name="platform_left_collision" type="CollisionShape2D" parent="Environment/platform_left" unique_id=1828618104]
-position = Vector2(166.5, 11)
+position = Vector2(149.5, 56)
 shape = SubResource("RectangleShape2D_0wfyh")
+one_way_collision = true
+debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+
+[node name="object_left_collision" type="CollisionShape2D" parent="Environment/platform_left" unique_id=610532888]
+position = Vector2(206, 12)
+shape = SubResource("RectangleShape2D_ya4ey")
 one_way_collision = true
 debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 
@@ -93,8 +105,14 @@ debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 position = Vector2(806, 280)
 
 [node name="platform_right_collision" type="CollisionShape2D" parent="Environment/platform_right" unique_id=1229552049]
-position = Vector2(167, 11)
+position = Vector2(186, 56.5)
 shape = SubResource("RectangleShape2D_0wfyh")
+one_way_collision = true
+debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+
+[node name="object_right_collision" type="CollisionShape2D" parent="Environment/platform_right" unique_id=1673109516]
+position = Vector2(79, 12)
+shape = SubResource("RectangleShape2D_eb6dy")
 one_way_collision = true
 debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 
@@ -111,22 +129,22 @@ position = Vector2(576, 520)
 
 [node name="left_collision" type="CollisionShape2D" parent="Environment/Building" unique_id=803143955]
 physics_interpolation_mode = 2
-position = Vector2(-475, 5)
-shape = SubResource("SegmentShape2D_sugp2")
+position = Vector2(-362.60938, -23)
+shape = SubResource("RectangleShape2D_trceg")
 one_way_collision = true
 debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 
 [node name="middle_collision" type="CollisionShape2D" parent="Environment/Building" unique_id=1660482581]
 physics_interpolation_mode = 2
-position = Vector2(-168, -124)
-shape = SubResource("SegmentShape2D_jyhfs")
+position = Vector2(27, -115)
+shape = SubResource("RectangleShape2D_a8y0u")
 one_way_collision = true
 debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 
 [node name="right_collision" type="CollisionShape2D" parent="Environment/Building" unique_id=660248568]
 physics_interpolation_mode = 2
-position = Vector2(192, 5)
-shape = SubResource("SegmentShape2D_tbgi4")
+position = Vector2(404.1875, -22)
+shape = SubResource("RectangleShape2D_jkv2x")
 one_way_collision = true
 debug_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
 
@@ -137,16 +155,14 @@ bumper_scene = ExtResource("5_85g3d")
 position = Vector2(578.00006, 608.00006)
 scale = Vector2(5, 5)
 
-[node name="Bumper" parent="." unique_id=158029156 instance=ExtResource("5_85g3d")]
-visible = false
-
 [node name="Turret" parent="." unique_id=18618341 instance=ExtResource("3_sugp2")]
-position = Vector2(8, 344)
+position = Vector2(8, 392)
 
 [node name="Turret2" parent="." unique_id=1969003927 instance=ExtResource("3_sugp2")]
-position = Vector2(1144, 345)
+position = Vector2(1144, 393)
 
 [node name="CanvasLayer" parent="." unique_id=1372331566 instance=ExtResource("6_tefeu")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=722779357]
 anchor_mode = 0
@@ -155,4 +171,5 @@ script = ExtResource("6_o6xl0")
 
 [node name="CombatBGM" type="AudioStreamPlayer" parent="." unique_id=1488592838]
 stream = ExtResource("7_o6xl0")
+volume_db = -8.0
 autoplay = true

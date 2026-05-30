@@ -58,7 +58,6 @@ func take_damage(amount: int, push_dir: Vector2 = Vector2.ZERO):
 		print("Swing! kena pukul Player! Sisa HP: ", hp)
 		knockback = push_dir * 600 
 		GameManager.trigger_hit_pause(0.08) 
-		GameManager.trigger_screen_shake(15.0) 
 		GameManager.add_score(10)
 	else:
 		print("Bamm! kena pantulan Bola! Sisa HP: ", hp)
@@ -71,7 +70,7 @@ func take_damage(amount: int, push_dir: Vector2 = Vector2.ZERO):
 		else:
 			print("Pinball Kill")
 		GameManager.add_score(100)
-		
+		GameManager.trigger_screen_shake(4.0)
 		if is_instance_valid(death_sound):
 			death_sound.reparent(get_tree().current_scene)
 			death_sound.play()

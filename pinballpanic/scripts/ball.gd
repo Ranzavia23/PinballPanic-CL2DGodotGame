@@ -23,7 +23,18 @@ func _ready() -> void:
 	current_hp = hp_ball
 	add_to_group("Projectile")
 	set_physics_process(false)
-
+	
+func _process(_delta: float) -> void:
+	if is_instance_valid(sprite):
+		if not is_deflected:
+			var time = Time.get_ticks_msec() / 100
+			if time % 2 == 0:
+				sprite.modulate = Color.RED
+			else:
+				sprite.modulate = Color.BLUE
+		else:
+			sprite.modulate = Color.RED
+		
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed_ball
 	var collision = move_and_collide(velocity * delta)
@@ -131,7 +142,7 @@ func on_deflected(new_dir: Vector2, player_node: Node2D) -> void:
 	is_deflected = true
 	can_aim_assist = false
 	direction = new_dir.normalized()
-	speed_ball = clamp(speed_ball * 1.15, min_speed_ball, max_speed_ball)
+	speed_ball = clamp(speed_ball * 1.6, min_speed_ball, max_speed_ball)
 	
 	damage_ball = 10
 	score_multiplier = 1.0 

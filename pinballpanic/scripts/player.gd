@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var max_fall_speed: float = 1200.0 #max akselerasi jatuh
 
 #buffer&coyote
-@export var attack_buffer_window: float = 0.15 
+@export var attack_buffer_window: float = 0.25
 @export var coyote_time: float = 0.1     #tolerate 0.1/0.2
 @export var jump_buffer_time: float = 0.1 
 

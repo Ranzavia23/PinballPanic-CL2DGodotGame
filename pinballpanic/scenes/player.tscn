@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://3gi03mff6bvg" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b1gyxqbeinbyk" path="res://assets/Player/Attack aerial/MC combat aerial1.png" id="2_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://ddeiwmieh51jf" path="res://assets/Player/Attack aerial/MC combat aerial2.png" id="3_qfm1y"]
-[ext_resource type="Texture2D" uid="uid://c68tstmjdfbob" path="res://assets/Player/Attack aerial/MC combat aerial3.png" id="4_fulsm"]
-[ext_resource type="Texture2D" uid="uid://drfluyrsy6gda" path="res://assets/Player/Attack ground/MC combat ground 1.png" id="5_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://n7rdxosb0gm" path="res://assets/Player/Attack ground/MC combat ground 2.png" id="6_60mlk"]
 [ext_resource type="Texture2D" uid="uid://bfvl66ihgdv5g" path="res://assets/Player/Attack ground/MC combat ground 3.png" id="7_i4ail"]
 [ext_resource type="Texture2D" uid="uid://ca6251cp452rm" path="res://assets/Player/Attack ground/MC combat ground 4.png" id="8_a38lo"]
@@ -33,16 +31,13 @@ animations = [{
 "texture": ExtResource("3_qfm1y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_fulsm")
+"texture": ExtResource("8_a38lo")
 }],
 "loop": false,
 "name": &"attack_aerial",
 "speed": 12.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_4r5pv")
-}, {
 "duration": 1.0,
 "texture": ExtResource("6_60mlk")
 }, {
@@ -97,7 +92,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
-radius = 20.0
+radius = 23.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1616736911]
 position = Vector2(570, 288)
@@ -112,8 +107,7 @@ debug_color = Color(0.37427923, 0.4884333, 0.9670016, 0.41960785)
 texture_filter = 1
 scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"run"
-frame_progress = 0.14353548
+animation = &"attack_ground"
 
 [node name="AttackCast" type="ShapeCast2D" parent="." unique_id=696868870]
 shape = SubResource("CircleShape2D_qhqgy")
